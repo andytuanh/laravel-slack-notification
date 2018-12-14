@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
+use Carbon\Carbon;
 
 class NotifyToSlackChannel extends Notification
 {
@@ -43,7 +44,7 @@ class NotifyToSlackChannel extends Notification
 	 public function toSlack($notifiable)
     {
         return (new SlackMessage)
-            ->content('Yuhuuuuuu!');
+            ->content("Sent at " . Carbon::now()->toDateTimeString());
     }
 
     /**
